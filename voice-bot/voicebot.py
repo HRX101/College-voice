@@ -11,6 +11,7 @@ from tensorflow.python.keras.models import load_model
 #r = sr.Recognizer()
 #engine=pyttsx3.init()
 #voices = engine.getProperty("voices")
+nltk.download('punkt')
 lemmatizer=WordNetLemmatizer()
 intents=json.loads(open('./voice-bot/intents.json').read())
 words=pickle.load(open('./voice-bot/words.pk1','rb'))
