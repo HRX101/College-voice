@@ -6,8 +6,8 @@ import numpy as np
 import nltk
 from nltk.stem import WordNetLemmatizer
 from tensorflow.python.keras.models import load_model
-import pyttsx3
-import speech_recognition as sr
+#import pyttsx3
+#import speech_recognition as sr
 #r = sr.Recognizer()
 #engine=pyttsx3.init()
 #voices = engine.getProperty("voices")
