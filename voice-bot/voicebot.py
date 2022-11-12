@@ -12,10 +12,10 @@ from tensorflow.python.keras.models import load_model
 #engine=pyttsx3.init()
 #voices = engine.getProperty("voices")
 lemmatizer=WordNetLemmatizer()
-intents=json.loads(open('intents.json').read())
-words=pickle.load(open('words.pk1','rb'))
-classes=pickle.load(open('classes.pk1','rb'))
-model = load_model('voicebot_model.h5')
+intents=json.loads(open('./voice-bot/intents.json').read())
+words=pickle.load(open('./voice-bot/words.pk1','rb'))
+classes=pickle.load(open('./voice-bot/classes.pk1','rb'))
+model = load_model('./voice-bot/voicebot_model.h5')
 """
 def speaknow(res):
     engine.say(res)
