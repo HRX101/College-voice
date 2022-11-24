@@ -55,3 +55,23 @@ with st.container():
 #answers.append(message)
 #question_answers_dictionary["question"]=question_list
 #question_answers_dictionary["answers"]=answers
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header{visibility:hidden;}
+            a{
+                visibility:hidden;
+            }
+  
+            footer:after{
+                visibility:visible;
+                content:'Made by JISU students 3rd year';
+                display:block;
+                color:red;
+                padding:5px;
+                top:3px;
+            }
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
