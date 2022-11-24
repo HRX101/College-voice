@@ -9,9 +9,14 @@ from firebase_admin import auth
 from streamlit_lottie import st_lottie
 import requests
 st.set_page_config(page_title="BOT",page_icon=":sound:")
+
 r = random.random()
-cred = credentials.Certificate('./voice-bot/key.json')
-firebase_admin.initialize_app(cred,{'databaseURL': "https://college-48b1b-default-rtdb.firebaseio.com"},name=str(r))
+if not firebase_admin._apps:
+    cred = credentials.Certificate('key.json')
+    firebase_admin.initialize_app(cred,{'databaseURL': "https://college-48b1b-default-rtdb.firebaseio.com"},name=str(r))
+#ref = db.reference('Survey/')
+#cred = credentials.Certificate('./voice-bot/key.json')
+#firebase_admin.initialize_app(cred,{'databaseURL': "https://college-48b1b-default-rtdb.firebaseio.com"},name=str(r))
 
 def load_lottieur(url):
     r = requests.get(url)
@@ -20,31 +25,6 @@ def load_lottieur(url):
     return r.json()
 
 
-firebaseConfig = {
-
-    "apiKey": "AIzaSyCLKBoJ0tYnYP8kpR_Q5AoKhPLknDwcb14",
-
-    "authDomain": "college-48b1b.firebaseapp.com",
-
-    "databaseURL": "https://college-48b1b-default-rtdb.firebaseio.com",
-
-    "projectId": "college-48b1b",
-
-    "storageBucket": "college-48b1b.appspot.com",
-
-    "messagingSenderId": "476697133787",
-
-    "appId": "1:476697133787:web:8abb558a3455d85f0382fe",
-
-    "measurementId": "G-MK0CTWME29"
-
-  }
-
-
-firebase =pyrebase.initialize_app(firebaseConfig)
-
-autho = firebase.auth()
-dbs = firebase.database()
 ref = db.reference('question/')
 lottie_coding =load_lottieur("https://assets3.lottiefiles.com/packages/lf20_ofa3xwo7.json")
 
