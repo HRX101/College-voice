@@ -11,9 +11,9 @@ import requests
 st.set_page_config(page_title="BOT",page_icon=":sound:")
 
 r = random.random()
-
-cred = credentials.Certificate('key.json')
-firebase_admin.initialize_app(cred,{'databaseURL': "https://college-48b1b-default-rtdb.firebaseio.com"})
+if not firebase_admin._apps:
+    cred = credentials.Certificate('key.json')
+    firebase_admin.initialize_app(cred,{'databaseURL': "https://college-48b1b-default-rtdb.firebaseio.com"})
 #ref = db.reference('Survey/')
 #cred = credentials.Certificate('./voice-bot/key.json')
 #firebase_admin.initialize_app(cred,{'databaseURL': "https://college-48b1b-default-rtdb.firebaseio.com"},name=str(r))
