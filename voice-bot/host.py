@@ -16,7 +16,7 @@ def load_lottieur(url):
 
 
 lottie_coding =load_lottieur("https://assets3.lottiefiles.com/packages/lf20_ofa3xwo7.json")
-cred = credentials.Certificate('key.json')
+cred = credentials.Certificate('./voice-bot/key.json')
 firebase_admin.initialize_app(cred,{'databaseURL': "https://college-48b1b-default-rtdb.firebaseio.com"},name=str(r))
 ref = db.reference('question/')
 val=random.randint(1,10000)
