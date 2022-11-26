@@ -163,10 +163,10 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                     message=send_message(output_text)
                     st.write('bot: ',message)
                     output_text=""
-                    text=""
+                    
                 else:
                     pass
-                time.sleep(3)
+                time.sleep(5)
                 #ref.child(name_of_user).push().set(question)
                 
         else:
