@@ -168,10 +168,6 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
             status_indicator.write("AudioReciver is not set. Abort.")
             break
 
-if app_mode == sound_only_page:
-    app_sst(
-        str(MODEL_LOCAL_PATH), str(LANG_MODEL_LOCAL_PATH), lm_alpha, lm_beta, beam
-    )
 
 r=random.randint(1,10000)
 if not firebase_admin._apps:
