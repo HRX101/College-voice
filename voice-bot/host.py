@@ -146,12 +146,14 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                     channels=len(audio_frame.layout.channels),
                 )
                 sound_chunk += sound
+                st.write("chunk:",sound_chunk)
 
             if len(sound_chunk) > 0:
                 sound_chunk = sound_chunk.set_channels(1).set_frame_rate(
                     model.sampleRate()
                 )
                 buffer = np.array(sound_chunk.get_array_of_samples())
+                st.write("buffer", buffer)
                 stream.feedAudioContent(buffer)
                 output_text=""
                 text=""
