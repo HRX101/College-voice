@@ -162,11 +162,15 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                 )
                 buffer = np.array(sound_chunk.get_array_of_samples())
                 stream.feedAudioContent(buffer)
+                output_text=""
                 text = stream.intermediateDecode()
+                output_text=text
                 text_output.markdown(f"**Text:** {text}")
-                if text!="":
-                    message=send_message(text)
+                
+                if output_text!="":
+                    message=send_message(output_text)
                     st.write('bot: ',message)
+                    output_text=""
                 #ref.child(name_of_user).push().set(question)
                 
         else:
