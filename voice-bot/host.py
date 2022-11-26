@@ -145,7 +145,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                     frame_rate=audio_frame.sample_rate,
                     channels=len(audio_frame.layout.channels),
                 )
-                sound_chunk += sound
+                sound_chunk = sound
 
             if len(sound_chunk) > 0:
                 sound_chunk = sound_chunk.set_channels(1).set_frame_rate(
@@ -165,7 +165,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                     output_text=""
                 else:
                     pass
-                time.sleep(5)
+                time.sleep(3)
                 #ref.child(name_of_user).push().set(question)
                 
         else:
