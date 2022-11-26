@@ -8,3 +8,5 @@ firebase_admin
 streamlit_lottie
 protobuf~=3.19.0
 pyrebase4
+pydub
+deepspeech
