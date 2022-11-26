@@ -70,15 +70,6 @@ def download_file(url, download_to: Path, expected_size=None):
 
 def main():
     st.header("Real Time Speech-to-Text")
-    st.markdown(
-        """
-This demo app is using [DeepSpeech](https://github.com/mozilla/DeepSpeech),
-an open speech-to-text engine.
-A pre-trained model released with
-[v0.9.3](https://github.com/mozilla/DeepSpeech/releases/tag/v0.9.3),
-trained on American English is being served.
-"""
-    )
 
     # https://github.com/mozilla/DeepSpeech/releases/tag/v0.9.3
     MODEL_URL = "https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm"  # noqa
@@ -94,7 +85,7 @@ trained on American English is being served.
     beam = 100
 
     sound_only_page = "Sound only (sendonly)"
-    with_video_page = "With video (sendrecv)"
+    with_video_page = "Hrithik dev, sayani dev"
     app_mode = st.selectbox("Choose the app mode", [sound_only_page, with_video_page])
 
     if app_mode == sound_only_page:
@@ -163,6 +154,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                 buffer = np.array(sound_chunk.get_array_of_samples())
                 stream.feedAudioContent(buffer)
                 output_text=""
+                text=""
                 text = stream.intermediateDecode()
                 output_text=text
                 text_output.markdown(f"**Text:** {text}")
@@ -171,6 +163,8 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                     message=send_message(output_text)
                     st.write('bot: ',message)
                     output_text=""
+                else:
+                    pass
                 #ref.child(name_of_user).push().set(question)
                 
         else:
