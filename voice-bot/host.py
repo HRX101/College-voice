@@ -11,7 +11,7 @@ import logging.handlers
 import queue
 import time
 import urllib.request
-
+import time
 from pathlib import Path
 from typing import List
 import numpy as np
@@ -69,7 +69,7 @@ def download_file(url, download_to: Path, expected_size=None):
             progress_bar.empty()
 
 def main():
-    st.header("Real Time Speech-to-Text")
+    st.header("Real Time voicebot")
 
     # https://github.com/mozilla/DeepSpeech/releases/tag/v0.9.3
     MODEL_URL = "https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm"  # noqa
@@ -165,6 +165,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                     output_text=""
                 else:
                     pass
+                time.sleep(5)
                 #ref.child(name_of_user).push().set(question)
                 
         else:
