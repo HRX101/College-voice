@@ -6,6 +6,7 @@ tensorflow
 nltk
 firebase_admin
 streamlit_lottie
+streamlit_webrtc
 protobuf~=3.19.0
 pyrebase4
 pydub
