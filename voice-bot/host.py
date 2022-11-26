@@ -145,7 +145,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                     frame_rate=audio_frame.sample_rate,
                     channels=len(audio_frame.layout.channels),
                 )
-                sound_chunk = sound
+                sound_chunk += sound
 
             if len(sound_chunk) > 0:
                 sound_chunk = sound_chunk.set_channels(1).set_frame_rate(
@@ -163,6 +163,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                     message=send_message(output_text)
                     st.write('bot: ',message)
                     output_text=""
+                    text=""
                 else:
                     pass
                 time.sleep(3)
