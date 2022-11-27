@@ -146,7 +146,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                     channels=len(audio_frame.layout.channels),
                 )
                 sound_chunk += sound
-                st.write("chunk:",sound)
+                #st.write("chunk:",sound)
 
             if len(sound_chunk) > 0:
                 sound_chunk = sound_chunk.set_channels(1).set_frame_rate(
