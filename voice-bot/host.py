@@ -165,6 +165,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                 if output_text!="":
                     message=send_message(output_text)
                     st.write('bot: ',message)
+                    stream = model.createStream()
                     
                     
                 else:
@@ -172,7 +173,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
               
                 #ref.child(name_of_user).push().set(output_text)
                 
-                stream = model.createStream()
+                
                 
         else:
             status_indicator.write("AudioReciver is not set. Abort.")
