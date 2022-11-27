@@ -148,7 +148,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                 #st.write("chunk:",sound)
 
             if len(sound_chunk) > 0:
-                sound_chunk = sound_chunk.set_channels(1).set_frame_rate(
+                sound_chunk = sound_chunk.set_channels(0).set_frame_rate(
                     model.sampleRate()
                 )
                 buffer = np.array(sound_chunk.get_array_of_samples())
