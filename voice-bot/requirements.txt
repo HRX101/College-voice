@@ -11,3 +11,4 @@ protobuf~=3.19.0
 pyrebase4
 pydub
 deepspeech
+speech_recognition
