@@ -131,7 +131,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
 
             sound_chunk = pydub.AudioSegment.empty()
             try:
-                audio_frames = webrtc_ctx.audio_receiver.get_frames(timeout=1)
+                audio_frames = webrtc_ctx.audio_receiver.get_frames(timeout=5)
             except queue.Empty:
                 time.sleep(0.1)
                 status_indicator.write("No frame arrived.")
