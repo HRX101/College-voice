@@ -11,7 +11,6 @@ import logging.handlers
 import queue
 import time
 import urllib.request
-import time
 from pathlib import Path
 from typing import List
 import numpy as np
@@ -132,7 +131,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
             try:
                 audio_frames = webrtc_ctx.audio_receiver.get_frames(timeout=1)
             except queue.Empty:
-                time.sleep(0.01)
+                time.sleep(0.1)
                 status_indicator.write("No frame arrived.")
                 continue
 
