@@ -147,14 +147,14 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                     channels=len(audio_frame.layout.channels),
                 )
                 sound_chunk += sound
-                #st.write("chunk:",sound)
+               
 
             if len(sound_chunk) > 0:
                 sound_chunk = sound_chunk.set_channels(1).set_frame_rate(
                     model.sampleRate()
                 )
                 buffer = np.array(sound_chunk.get_array_of_samples())
-                #st.write("buffer", buffer)
+              
                 stream.feedAudioContent(buffer)
                 output_text=""
                 text=""
@@ -164,15 +164,15 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                 
                 if output_text!="":
                     message=send_message(output_text)
-                    #st.write("user: ",output_text)
                     st.write('bot: ',message)
-                    output_text=""
+                    
                     
                 else:
                     pass
-                time.sleep(5)
+              
+                #ref.child(name_of_user).push().set(output_text)
+                
                 stream = model.createStream()
-                #ref.child(name_of_user).push().set(question)
                 
         else:
             status_indicator.write("AudioReciver is not set. Abort.")
