@@ -17,6 +17,11 @@ import numpy as np
 import pydub
 
 from streamlit_webrtc import WebRtcMode, webrtc_streamer
+
+import speech_recognition as sr  
+
+# get audio from the microphone                                                                       
+r = sr.Recognizer() 
 HERE = Path(__file__).parent
 
 logger = logging.getLogger(__name__)
@@ -148,17 +153,18 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                 #st.write("chunk:",sound)
 
             if len(sound_chunk) > 0:
-                sound_chunk = sound_chunk.set_channels(0).set_frame_rate(
+                sound_chunk = sound_chunk.set_channels(1).set_frame_rate(
                     model.sampleRate()
                 )
                 buffer = np.array(sound_chunk.get_array_of_samples())
+                st.write("You said " + r.recognize_google(buffer))
                 #st.write("buffer", buffer)
                 stream.feedAudioContent(buffer)
                 output_text=""
                 text=""
                 text = stream.intermediateDecode()
                 output_text=text
-                text_output.markdown(f"**user:** {text}")
+                text_output.markdown(f"**User:** {text}")
                 
                 if output_text!="":
                     message=send_message(output_text)
