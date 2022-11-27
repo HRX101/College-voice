@@ -131,7 +131,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
 
             sound_chunk = pydub.AudioSegment.empty()
             try:
-                audio_frames = webrtc_ctx.audio_receiver.get_frames(timeout=5)
+                audio_frames = webrtc_ctx.audio_receiver.get_frames(timeout=10)
             except queue.Empty:
                 time.sleep(0.1)
                 status_indicator.write("No frame arrived.")
@@ -167,6 +167,8 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                     st.write('bot: ',message)
                     time.sleep(5)
                     stream = model.createStream()
+                    status_indicator.write("")
+                    status_indicator.write("Say again")
                     
                     
                 else:
