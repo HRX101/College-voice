@@ -156,7 +156,6 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                 buffer = np.array(sound_chunk.get_array_of_samples())
                 #st.write("buffer", buffer)
                 stream.feedAudioContent(buffer)
-                print(type(buffer))
                 output_text=""
                 text=""
                 text = stream.intermediateDecode()
@@ -172,6 +171,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                 else:
                     pass
                 time.sleep(5)
+                stream = model.createStream()
                 #ref.child(name_of_user).push().set(question)
                 
         else:
