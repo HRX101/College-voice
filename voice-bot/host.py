@@ -167,8 +167,8 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                     st.write('bot: ',message)
                     time.sleep(5)
                     stream = model.createStream()
-                    status_indicator.write("")
-                    status_indicator.write("Say again")
+                    status_indicator.markdown("")
+                    status_indicator.markdown("Say again")
                     
                     
                 else:
