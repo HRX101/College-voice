@@ -132,7 +132,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
             try:
                 audio_frames = webrtc_ctx.audio_receiver.get_frames(timeout=1)
             except queue.Empty:
-                time.sleep(0.1)
+                time.sleep(0.01)
                 status_indicator.write("No frame arrived.")
                 continue
 
@@ -146,7 +146,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                     channels=len(audio_frame.layout.channels),
                 )
                 sound_chunk += sound
-                #st.write("chunk:",sound_chunk)
+                st.write("chunk:",sound)
 
             if len(sound_chunk) > 0:
                 sound_chunk = sound_chunk.set_channels(1).set_frame_rate(
@@ -159,7 +159,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                 text=""
                 text = stream.intermediateDecode()
                 output_text=text
-                text_output.markdown(f"**Text:** {text}")
+                text_output.markdown(f"**user:** {text}")
                 
                 if output_text!="":
                     message=send_message(output_text)
