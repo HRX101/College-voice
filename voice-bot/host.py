@@ -168,7 +168,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                     bot.markdown(f'bot: {message}')
                     status_indicator.markdown("")
                     status_indicator.markdown("Say again")
-                    time.sleep(10)
+                    time.sleep(5)
                     stream = model.createStream()
 
                     
