@@ -221,10 +221,10 @@ with st.container():
     left_column, right_column =st.columns(2) 
     with left_column:  
         name_of_user=st.text_input("Enter your name")
-        question = st.text_input("Raise your voice through text typing: ")
+        question = st.text_input("Type your problems: ")
         if question!="":
             message=send_message(question)
-            st.write('bot: ',message)
+            st.write('Medbot: ',message)
             ref.child(name_of_user).push().set(question)
     with right_column:
         st_lottie(lottie_coding,width=200, height=200, key="coding")
