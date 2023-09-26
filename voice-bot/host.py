@@ -70,7 +70,7 @@ def download_file(url, download_to: Path, expected_size=None):
             progress_bar.empty()
 
 def main():
-    st.header("Real Time voicebot")
+    st.header("Real Time HealthBot")
 
     # https://github.com/mozilla/DeepSpeech/releases/tag/v0.9.3
     MODEL_URL = "https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm"  # noqa
